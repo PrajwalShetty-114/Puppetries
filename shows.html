@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show Booking - String Master Puppetry</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #f7f7f7;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 1rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('./showsImages/main.jpg') no-repeat center center/cover;
+      height: 400px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+    }
+
+    /* Show Section */
+    .shows {
+      padding: 3rem 2rem;
+      background-color: #f0f0f0;
+      text-align: center;
+    }
+
+    .shows h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .show-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .show-card {
+      background-color: #fff;
+      padding: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      overflow: hidden;
+    }
+
+    .show-card:hover {
+      transform: scale(1.05);
+    }
+
+    .show-image img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .show-info h3 {
+      font-size: 1.5rem;
+      color: #333;
+      margin: 1rem 0;
+    }
+
+    .show-info p {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      color: #ff6347;
+      margin-bottom: 1rem;
+    }
+
+    .book-now {
+      padding: 0.75rem 1.5rem;
+      background-color: #ff6347;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .book-now:hover {
+      background-color: #ff4500;
+    }
+
+    .countdown {
+      font-size: 1rem;
+      color: #333;
+      margin: 1rem 0;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .close {
+      color: #aaa;
+      font-size: 1.5rem;
+      float: right;
+    }
+
+    .close:hover, .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./shopping/shop.html">Shop</a></li>
+      <li><a href="./shows.html">Shows</a></li>
+      <li><a href="./tutorials/tutorials.html">Tutorials</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Welcome to String Master Puppetry</h1>
+  </section>
+
+  <!-- Show Section -->
+  <section class="shows" id="shows">
+    <h2>Upcoming Puppet Shows</h2>
+    <div class="show-grid">
+
+      <!-- Show 1 -->
+      <div class="show-card">
+        <div class="show-image">
+          <img src="./showsImages/puppet magic show.jpg" alt="Puppet Magic Show">
+        </div>
+        <div class="show-info">
+          <h3>Puppet Magic Show</h3>
+          <p>Date: October 15, 2024</p>
+          <p>Location: Broadway Theater</p>
+          <p class="price">$25</p>
+          <div class="countdown" id="countdown1"></div>
+          <button class="book-now" onclick="openModal('show1')">More Info</button>
+        </div>
+      </div>
+
+      <!-- Show 2 -->
+      <div class="show-card">
+        <div class="show-image">
+          <img src="./showsImages/puppeteers Tale.jpg" alt="The Puppeteer's Tale">
+        </div>
+        <div class="show-info">
+          <h3>The Puppeteer's Tale</h3>
+          <p>Date: November 5, 2024</p>
+          <p>Location: Grand Stage Hall</p>
+          <p class="price">$30</p>
+          <div class="countdown" id="countdown2"></div>
+          <button class="book-now" onclick="openModal('show2')">More Info</button>
+        </div>
+      </div>
+
+      <!-- Show 3 -->
+      <div class="show-card">
+        <div class="show-image">
+          <img src="./showsImages/puppeteers Adventures.jpg" alt="Puppet Adventure">
+        </div>
+        <div class="show-info">
+          <h3>Puppet Adventure</h3>
+          <p>Date: December 20, 2024</p>
+          <p>Location: Opera House</p>
+          <p class="price">$20</p>
+          <div class="countdown" id="countdown3"></div>
+          <button class="book-now" onclick="openModal('show3')">More Info</button>
+        </div>
+      </div>
+
+    </div>
+ <section class="shows" id="shows">
+  <div class="show-grid">
+     
+      <div class="show-card">
+        <div class="show-image">
+          <img src="./showsImages/pupppet odyssey.jpg" alt="Puppet odyssey">
+        </div>
+        <div class="show-info">
+          <h3>Puppet Adventure</h3>
+          <p>Date: December 20, 2024</p>
+          <p>Location: Opera House</p>
+          <p class="price">$20</p>
+          <div class="countdown" id="countdown4"></div>
+          <button class="book-now" onclick="openModal('show4')">More Info</button>
+        </div>
+      </div>
+
+      <div class="show-card">
+        <div class="show-image">
+          <img src="./showsImages/The enchanted puppets.jpg" alt="The enchanted puppet">
+        </div>
+        <div class="show-info">
+          <h3>Puppet Adventure</h3>
+          <p>Date: December 20, 2024</p>
+          <p>Location: Opera House</p>
+          <p class="price">$20</p>
+          <div class="countdown" id="countdown5"></div>
+          <button class="book-now" onclick="openModal('show5')">More Info</button>
+        </div>
+      </div>
+
+
+      <div class="show-card">
+        <div class="show-image">
+          <img src="./showsImages/The marvelous puppet parade.jpg" alt="The marvelous puppet">
+        </div>
+        <div class="show-info">
+          <h3>Puppet Adventure</h3>
+          <p>Date: December 20, 2024</p>
+          <p>Location: Opera House</p>
+          <p class="price">$20</p>
+          <div class="countdown" id="countdown6"></div>
+          <button class="book-now" onclick="openModal('show6')">More Info</button>
+        </div>
+      </div>
+
+    </div>
+</section>
+    <!-- Modal (for more info about shows) -->
+    <div id="modal-show1" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('show1')">&times;</span>
+        <h3>Puppet Magic Show</h3>
+        <p><strong>Date:</strong> October 15, 2024</p>
+        <p><strong>Location:</strong> Broadway Theater</p>
+        <p><strong>Description:</strong> A magical evening with the finest puppet performances. Fun for the whole family!</p>
+        <p><strong>Price:</strong> $25</p>
+        <button class="book-now">Book Now</button>
+      </div>
+    </div>
+
+    <div id="modal-show2" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('show2')">&times;</span>
+        <h3>The Puppeteer's Tale</h3>
+        <p><strong>Date:</strong> November 5, 2024</p>
+        <p><strong>Location:</strong> Grand Stage Hall</p>
+        <p><strong>Description:</strong> A classic puppetry story that will captivate audiences of all ages.</p>
+        <p><strong>Price:</strong> $30</p>
+        <button class="book-now">Book Now</button>
+      </div>
+    </div>
+
+    <div id="modal-show3" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('show3')">&times;</span>
+        <h3>Puppet Adventure</h3>
+        <p><strong>Date:</strong> December 20, 2024</p>
+        <p><strong>Location:</strong> Opera House</p>
+        <p><strong>Description:</strong> Join us on a thrilling adventure with puppets in a world of fantasy.</p>
+        <p><strong>Price:</strong> $20</p>
+        <button class="book-now">Book Now</button>
+      </div>
+    </div>
+
+    <div id="modal-show4" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('show4')">&times;</span>
+        <h3>The Puppeteer's Tale</h3>
+        <p><strong>Date:</strong> November 5, 2024</p>
+        <p><strong>Location:</strong> Grand Stage Hall</p>
+        <p><strong>Description:</strong> A classic puppetry story that will captivate audiences of all ages.</p>
+        <p><strong>Price:</strong> $30</p>
+        <button class="book-now">Book Now</button>
+      </div>
+    </div>
+
+
+        <div id="modal-show5" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('show5')">&times;</span>
+        <h3>The Puppeteer's Tale</h3>
+        <p><strong>Date:</strong> November 5, 2024</p>
+        <p><strong>Location:</strong> Grand Stage Hall</p>
+        <p><strong>Description:</strong> A classic puppetry story that will captivate audiences of all ages.</p>
+        <p><strong>Price:</strong> $30</p>
+        <button class="book-now">Book Now</button>
+      </div>
+    </div>
+
+
+    <div id="modal-show6" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('show6')">&times;</span>
+        <h3>The Puppeteer's Tale</h3>
+        <p><strong>Date:</strong> November 5, 2024</p>
+        <p><strong>Location:</strong> Grand Stage Hall</p>
+        <p><strong>Description:</strong> A classic puppetry story that will captivate audiences of all ages.</p>
+        <p><strong>Price:</strong> $30</p>
+        <button class="book-now">Book Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript for Modal and Countdown Timer -->
+  <script>
+    // Modal Functionality
+    function openModal(showId) {
+      document.getElementById('modal-' + showId).style.display = 'flex';
+    }
+
+    function closeModal(showId) {
+      document.getElementById('modal-' + showId).style.display = 'none';
+    }
+
+    // Countdown Timer Function
+    function countdown(elementId, showDate) {
+      const countdownElement = document.getElementById(elementId);
+      const targetDate = new Date(showDate).getTime();
+
+      const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        if (distance < 0) {
+          clearInterval(interval);
+          countdownElement.innerHTML = "EXPIRED";
+        } else {
+          countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+      }, 1000);
+    }
+
+    // Initialize countdowns for each show
+    countdown('countdown1', 'October 15, 2024');
+    countdown('countdown2', 'November 5, 2024');
+    countdown('countdown3', 'December 20, 2024');
+  </script>
+</body>
+</html>

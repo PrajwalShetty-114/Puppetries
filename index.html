@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>String Master of Puppetry</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>.buttons{
+    border-radius: 15px;
+    background-color: blue;
+  }
+  </style>
+</head>
+<body>
+  <!-- Hero Section with Background Carousel -->
+  <header class="hero">
+    <nav class="navbar">
+      <div class="logo">String Master</div>
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="./shopping/shop.html">Shop</a>
+        <!-- Shop Section -->
+
+  
+          <!-- <ul class="dropdown-content">
+            <li><a href="#">Puppets</a></li>
+            <li><a href="#">Accessories</a></li>
+          </ul> -->
+        </li>
+        <li><a href="./tutorials/tutorials.html">Tutorials</a></li>
+        <li><a href="./innovation.html">Innovation & Recommendation</a></li>
+         <li><button type="button" class="btn btn-primary buttons"
+          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+    <a href="./login.html">Sign Up</a>
+  </button></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Text -->
+    <div class="hero-text">
+      <h1>Welcome to the Magical World of Puppetry!</h1>
+      <p>Master the art of puppetry with String Master – Shows, Tutorials, and More.</p>
+     ,<a href="./shows.html"><button    class="cta-button">Book a Show Now</button></a> 
+    </div>
+
+    <!-- Carousel Controls for Background -->
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+  </header>
+<!-- src="script.js" -->
+  <script >
+  
+  let slideIndex = 0;
+
+    // List of background images
+    const backgrounds = [
+      'url("image/puppet1.jpg")',
+      'url("image/puppet2.jpg")',
+      'url("image/puppet3.jpg")'
+    ];
+    
+    // Set initial background image when the page loads
+    document.querySelector('.hero').style.backgroundImage = backgrounds[slideIndex];
+    
+    // Function to change the background
+    function moveSlide(n) {
+      const hero = document.querySelector('.hero');
+      slideIndex = (slideIndex + n + backgrounds.length) % backgrounds.length;
+      hero.style.backgroundImage = backgrounds[slideIndex];
+    }
+    
+    // Automatically move slides every 5 seconds
+    setInterval(() => {
+      moveSlide(1);
+    }, 4000); // Change every 5 seconds
+
+    bookNowButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            alert('Show successfully booked!');
+          });
+        });
+    </script>
+</body>
+</html>

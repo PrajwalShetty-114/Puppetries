@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puppet Master - Manage Content</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            width: 600px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px;
+            flex: 1;
+            text-align: center;
+            background-color: #555;
+            border: 1px solid #444;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+
+        .tab.active {
+            background-color: #f9aa33;
+            color: white;
+        }
+
+        .form-container {
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+
+        input[type="text"],
+        textarea,
+        input[type="number"],
+        input[type="file"],
+        button,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #f9aa33;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #f9aa33;
+        }
+
+        .error {
+            color: #f44336;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Manage Content</h1>
+    
+    <div class="tabs">
+        <div class="tab active" data-form="itemsForm">List Item</div>
+        <div class="tab" data-form="showsForm">List Show</div>
+        <div class="tab" data-form="videosForm">List Video</div>
+    </div>
+
+    <div id="itemsForm" class="form-container active">
+        <h2>Upload Item</h2>
+        <div class="error" id="itemsError"></div>
+        <form id="itemsUploadForm" enctype="multipart/form-data">
+            <input type="text" id="itemName" placeholder="Item Name" required>
+            <textarea id="itemDescription" placeholder="Description" rows="4" required></textarea>
+            <input type="number" id="itemPrice" placeholder="Price" step="0.01" required>
+            <input type="file" id="itemImage" accept="image/*" required>
+            <button type="submit">Upload Item</button>
+        </form>
+    </div>
+
+    <div id="showsForm" class="form-container">
+        <h2>Upload Show</h2>
+        <div class="error" id="showsError"></div>
+        <form id="showsUploadForm" enctype="multipart/form-data">
+            <input type="text" id="showTitle" placeholder="Show Title" required>
+            <textarea id="showDescription" placeholder="Description" rows="4" required></textarea>
+            <input type="text" id="showDate" placeholder="Show Date (YYYY-MM-DD)" required>
+            <input type="text" id="showTime" placeholder="Show Time (HH:MM)" required>
+            <input type="text" id="showVenue" placeholder="Show Venue" required>
+            <input type="file" id="showImage" accept="image/*" required>
+            <button type="submit">Upload Show</button>
+        </form>
+    </div>
+
+    <div id="videosForm" class="form-container">
+        <h2>Upload Tutorial Video</h2>
+        <div class="error" id="videosError"></div>
+        <form id="videosUploadForm" enctype="multipart/form-data">
+            <input type="text" id="videoTitle" placeholder="Video Title" required>
+            <textarea id="videoDescription" placeholder="Description" rows="4" required></textarea>
+            <select id="videoCategory" required>
+                <option value="" disabled selected>Select Category</option>
+                <option value="hand_puppet">Hand Puppet</option>
+                <option value="marionette_puppet">Marionette Puppet</option>
+                <option value="sock_puppet">Sock Puppet</option>
+            </select>
+            <input type="file" id="videoFile" accept="video/*" required>
+            <button type="submit">Upload Video</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Handle tab switching
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelector('.tab.active').classList.remove('active');
+            tab.classList.add('active');
+            
+            const formId = tab.getAttribute('data-form');
+            document.querySelectorAll('.form-container').forEach(form => form.classList.remove('active'));
+            document.getElementById(formId).classList.add('active');
+        });
+    });
+
+    // Handle form submissions
+    document.getElementById('itemsUploadForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+
+        fetch('upload_item.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Item uploaded successfully!');
+                this.reset();
+            } else {
+                document.getElementById('itemsError').textContent = data.error;
+            }
+        })
+        .catch(error => {
+            document.getElementById('itemsError').textContent = 'An error occurred.';
+        });
+    });
+
+    document.getElementById('showsUploadForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+
+        fetch('upload_show.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Show uploaded successfully!');
+                this.reset();
+            } else {
+                document.getElementById('showsError').textContent = data.error;
+            }
+        })
+        .catch(error => {
+            document.getElementById('showsError').textContent = 'An error occurred.';
+        });
+    });
+
+    document.getElementById('videosUploadForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+
+        fetch('upload_video.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Video uploaded successfully!');
+                this.reset();
+            } else {
+                document.getElementById('videosError').textContent = data.error;
+            }
+        })
+        .catch(error => {
+            document.getElementById('videosError').textContent = 'An error occurred.';
+        });
+    });
+</script>
+
+</body>
+</html>

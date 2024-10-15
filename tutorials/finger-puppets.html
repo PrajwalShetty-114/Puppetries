@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Puppets Tutorials - String Master</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .logo {
+            font-size: 2.5em;
+            font-family: 'Georgia', serif;
+            color: #ffdd57;
+        }
+        .nav-menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .nav-menu li {
+            margin-left: 20px;
+        }
+        .nav-menu li a {
+            text-decoration: none;
+            color: #ffdd57;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .nav-menu li a:hover {
+            color: #ffffff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffdd57;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .video-item {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .video-item:hover {
+            transform: scale(1.05);
+        }
+        .video-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .video-item h3 {
+            margin: 10px 0;
+            font-size: 20px;
+            color: #ffdd57;
+        }
+        .video-item p {
+            font-size: 16px;
+            color: #ccc;
+        }
+        .video-item a {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #ffdd57;
+            color: #1e1e1e;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .video-item a:hover {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <h1 class="logo">String Master</h1>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../shows.html">Shows</a></li>
+                    <li><a href="../innovation.html">Innovation</a></li>
+                    <li><a href="../shopping/shop.html">Shopping</a></li>
+                    <li><a href="./tutorials.html">tutorials</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Hand Puppets Tutorials</h1>
+        <div class="video-grid">
+            <div class="video-item">
+                <img src="data:image/jpeg;base64,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" alt="Video 1">
+                <h3>finger Puppet Tutorial 1</h3>
+                <p>Learn the basics of hand puppetry with this beginner's guide.</p>
+                <a href="#">Watch Now</a>
+            </div>
+            <div class="video-item">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUSEhIVFRUXFhUVFRUVFxUVFRUVFRUWFhUVFRUYHiggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGBAQGi0lHSUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAL8BCAMBEQACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAAAQIDBAUGB//EADcQAAEDAgQEAwcDAwUBAAAAAAEAAhEDIQQSMUEFUWFxIoGRBhMyobHR8EJSwRRy8QcVI2Lhov/EABoBAQEAAwEBAAAAAAAAAAAAAAABAgMEBQb/xAAyEQACAgECAwUIAwACAwAAAAAAAQIRAyExBBJBBRNRYXEikaGxwdHh8DKB8RUjFCQz/9oADAMBAAIRAxEAPwD2ULUeuNAEIBoBoBqgFACpAhANACAEA4QBCAEAQgCEAIAQCQBCAUIBIAQCQCIQCQEUBGFCiIQChUhEhCkYUBrQDQDQAgHCAcKkCEA0AIBoBQgHCAEAIAhANAEIAhAJAEIBIAIQChABCASAjCAUIBQgIlAIoBFAQIQoiEBqUAwgGgBANACpBoBoAhAEIBoAQAgBANAEIAQgQhRIAQBCASASASAEAkAiEBEoBEICJQCQESgIlCmlCjChBoBoCylRLtAtOXiMeJpSe5i5JEm4ZxkbiNeq1T47DHrfoRyRF9Jw1C24+Ix5FcWVNMRaeS2qUXsy2iQpk7ErF5YLeSJaGaZ3B9EWWDdKSFoDTI2KRywk2k0LTIkLNNNWihCoBANCCQo0AIBIAQCQAgEgEUAkAEIBFARKARQESgEgIlQESFQaFDIaAEINAbcLi2NbEjmV8zxnEOeV0vQ1NWyijiyS550c63RoECfr5rlzQnGn4mTitvAnVxvip0xq50uM6NF/nCyjBuN9AoaOR0MXVDWOdazSY8rLZVNV1NcVbSMHs1VNRpa6xBtJkQ7/ANlZQ4dykoydWbM65dUdV7BBAMG4F9OXzW1yqDxt6r02/wB6mlPWzk8H4p74Q9uSo39MiHdQR9FqpJczT9L/AHodGTFybO0dSmwOnQH6rCNtNQlpvTNDdbltbh8QbEmBou+eDPhioqVptbaVZjHKmc/GYItGbb6XML0eEyZHBd7v89/jobY5E3RjXYbAQAgBACASAEBmxVYtcwD9TiPRpP8AC4O0M+TDjUob39B0ZIl21+y8eXanErbX+v3roQi57hsFI9rcRu693gANQ8p1+QlZx7byu7iviUrFR0nlrp6xzTL2pxKjGcdn5fnX76Ak6qQJ/LLUu2eI8vd+QZ8VWeCzLu4A9it2PtLPnkscXTfl/pUtzSxy7ey+Mnl5seX+S/X7iDXrgiUBEoBKFL0KCEGgE4SsMkFOLiwUPox1XlvgVjd3YRCpxFsQBBiI68yuF4HKSTWi+PmRY3epTw15zuJNwPr/AIV4j2YcqM8mkUjRxjGEMyzd2vYLVw+JXzWTFG2PhVaJMxIHTRbOKUnFUXKjczFC/iEA6z0C5o45SfhoaWvI89UqlpJBg5iZHe0LujG4qzsWq1O7huJtyNqVHwR+lvxOdz7aLkXCvntOq1X+7aHNKDvlSOq7igcA6ZJAMcp2K9CGLPxE7k6o0rFWiKq3FDlAIkmQSdP8rdlxShlhzyfLej8H5+viZLGkzGvWNgBACAaAz4jFhttTyH88lwcTx8MPspc0vBdPV9C0YauNqa2A6Ly83G8ZXN/FeX5v6BUdrhdYmixzjctn1uvTwylLHGUnq0YS3ZncMzgYzeIQOd9Oi150nB2r8ivYuqNdOXIZJyugGABOvQ5flsuDuJd1Llj7V01rVfbTf3NGnmp29ig0gC4c4N4ncHsLaLz8mHlik/3p/Wq2Zs5rJVGtGm1tdNjprafVR4o45cr1+/X1+Rbspa/xuEftPXQiEv2eWlvv19L8PIMdZ4IIjYjQ8lg1fgRaMTSHNBjYEaa+q7ODUY503utvUuqYe6ApuqS0EbOdE20A/NQvSlj7lS4hVabfrfQxcqmlRzm8Q5geUpg7TlJXNLfzNrRrp1Q4SF6mLNDLHmiwMraQiVClyFGgGgGgIVdFozK0iM44peIuXE4mzm6GcMzVB3WDjZnehp4qNFHBLYxgy7hrczVlGJJvU5mPblesXHU2RehY64EK8pLIzJARIWekwunku/h1ozR1LXCRBW7JCM4uMtmBrJKlQBUAgKMXWgQNT8hzXFxeaUUoQ/k/gur+3v6EOe8tIsfPqDz31+eq8nlwyg1B9fjfj1+3Ux9q9UU4mp4Dz0PcbfTRaMuZyx8stJbP+n8PKjOMddNj0OEbFCn/AGN+gXt41WOPojBv2mZq9YMyi5cTZouTFyegFr21G5CxzRbg6V/D4lMbvaHDsqtY+oWvc6MzmuAgiDDgInuZ81hBaNa3prpt/Xh5+pg8UupPiXFcO18tqhw0MZibAGTI6leXxPDOWSXJt++Jsx4p8uqKcFxEOBc0mMxG4tY6Lknz4J15fvyLLHsmV1uKU6byarsubK0GHGXXPXmsoKWbSkt9v3+umhOR1oWf7xQI+P5O+yPhMt7F7uSNGDkhtthvtF12YeEyLLzvx8enuIzBxl0PaOh+ZH2V7SVuK9foZQMobbWN5P1XNijcUrrcN6jw9UtuDt5arp4XO4vnXh9SNHWa+QDzX0UZKUVJACsgWhQo0AwgBARq7LVl2MWYOJjKLBcrRYsy8JcM3igHYEifRblwmaubkdGqfFYubk5lZfxgSueSN8GaeEUiArCJJs5ntOwi4gHT8C3YeEnnlUEacvF4+HjzTZzODY3McjiMy3cR2bmwx52tDVg7Sw55csXTOp7uHBcNHbeh3sNou3AvZMC2VuA0AIBExdYykopyeyBy3Vcz52NgPz8uvm48S83EOeyapfRfP30Sa0KnvuB206HpzWeWUMe/StvD8iKsy44zJGn5PzXHl5ZTlKK00f0+ZshpSZ6PhVScPT/tj0t/C93hneGHoap6SYn0QHOfqS1regDZNu5dfsOS3PYiPDcWLHVjTdcEEEdCtLjJOzcpwa5bRncPEVro3J6BSxb2SGugEzstU+HhNpyVlaTMPEcc4/Gc0aTHqssfDwi/ZRhJwgrZfwvHNdABGvMLplhmlbRzx4zDOXLGWp7/AArvCOyIjOLxZ+atGzQ0HzufqF5vF1LMr2VGcdEDSCAOfXraFr5Fy8vjf79yXrZGIb3I5HcbLXGLjjfg2V7nQwLjDgdiY7L2ez8rkpRfR6ehOiNBXoAtCFGgAIBhAJ6wybEZVxsuFB7mCX5TlGl+6vC8iypzVpHJxPO8bUHTZ8dd7T4kHLDstxlk6EgnaNl7/wDyntaQVfvkeD/xiqnJ2fXPZik+thmPqtIdpcgmP0kkdIXg8a8c80pY1SfTz6nu8GskMMY5HbXX5HfoYYDZcqRvbPA/6m4esQHUnQG2daSA7R07aQvQ4TiZYouMN2cHGcLHLKMpdPceW9ieGVnV85e7KyDMCJkeH0nTRbMvF5FCSbtPTUxxcHjc00qrXQ+l4jCLx2j1kzZQENC7MaqKBYthRoQSAz458Njc/ReX2rm5MPIt5fLr9io578sGT57Tp/C8v/x4Rxcsnrq/R9DG3egh8J1k6Hr17D6LGcm8bi9b6/QtambGNi3X6aLnknGUumtV5L6GyLvU7fBHzQb3cPRxC93gn/0Rv91NWRe0PjTnii80zD4OUxMHnG678KXNqc3Ec3dtRdM+C1uJ1H1feblwA2dewOsza5nUrsbs8hcIox0b5vHzPoOGpPLWPcCC5gJEReOWy8nJFKbSPoeGnKWKLnvWoV8K7WCsKOhM4/G8C91JxbMgT3gaLp4arOLjY88a6HleF063vGtph5cTdvOJMg2j8uu+zyMnDqS9lU+nqfdMOCGtB1gT3i68x1eh7EbpWcDEOmo87Zon+2AvHza5JPp/iN3RF9Pl3G0LNtRaXr9epgtdQawkGNh8vz6LRBNxkktvuZN6mzh2hPMr0+ylfeSfVg1FesC1CjQg0ASgK6jvEAvPz5//AGIY1/f0D2NGILSMpMT8l0xi90SOJyTZ50+yrXVc5pt1kkE5T1yrJ55+BpeGCZ7LAUMjYWrXqGaGuBkDYwe8A/QhUGPiPDxVHI7FRoqlRwa9IYc5W3cdTsOwRRb3OzBg7xX0OhhqxeL8pWU4pIxzYlDYsC3xacU1saiSoBUAhTFj6ZguF/45fUrxe0eHnKXebxX02X9u7fgEY2UbCLzYDfn9rLzseOUse6XNdL96bL3BuhgDnYbX136LTKXsR5nS6r5+hdTHxJ+VpduTA7n7fws3yzlKXTp82ZwTtI7nsxTIw7Aep8i4kfIhe5wsWsSv9s1Zv5s6mJwmZsAwdjyPbddCtao1abM8rQ9h2Gt7x1JjYM2kiebRss+9nsYd1jWp6Y8IYALac1q5DPmJHhTOQTkQ52Z6/BGEREIo1sXmvc5OE9mG0nlwy+QA+n0WTlNqmx7PRGyu3KCeQ+i1S0VlR5miMzSSL5h8/pqvIX/ZjbrW/wB9DZLRmnDHUnqewBWeKlcpbav+jGV7ItpfERflJn5rLGl3jvrt4U9TF7aGnAjw+a9Ds6CjjdeJsLyvQBahRgoQaAYUbSVsFVWzh3XhydcRF+L1MVqmLEUzmn0Xtweh2cPNclHTwtPw+K46iR16krXNps5c7TlobKc/5jppGywNBlwuKbkzG+aoW21l1TKBB5CJ5ZTyQGpx5jS4sTGokEb9O6A5nEuF+88Wh3GgPVVOjr4fie7VMlRwwpsI1PNa88/Yb8jDLl7yRUxy8/svjF/8ZP0+329xiWAr3CggBUAgK6lEHuuXNwmPJrVMjRkfQI19dl85xvDZMOs1dvfp+H0MkcrEYV1Ws1kENGpggRq6D8lt4Php5HGLTr6fk2xair6nqKT8rSeQ0XvzVSNCjzSSHw3iwe4NIMmYhriLCbuAhvmVaNmfh+TY61J0gEgtJAOUxIkaGCRI6EqHIYa3/LWDCJZShz50NVwmm2N8rTm7uYdrUG+VAV1HgXJhQqTexnc8ESDKGTi1ucviDcwLeYI9Vi4c/s+JY7nmsKw6Ru3naDdePwyktI76e9PU2zNGGovuC08hNgR/hb8WHKrXK7+H6yUjXTw5kGALAECb/Zdi4NuSltoYKPiXMYAIXXhxRxQ5YmYLaUuQgICQQFlIfnVcXGZaSgt2YyM9S755FeMpN8RGXmZL+J06TRC941JtE6tRzdGgi0G3hvcuB2GtlCGmQEIZKr8Ow+9d7prv3nKDJEfFziylmccc5OopsvdWa5hc19oJzNvYbjmhHFxdNEaLnkS9rW2FgSb77CPmhCjGO8JWnNJRg29qMo7mSk2fzS6+b4jG8eS1tun+9U9DYy2IX0vZ/GriIU/5Lf7kQLvKCoBQCQBCjSap7AFVpoAf8Luy05N0WH80YeFYdxqhwBFon9oucwB30HpyWNnXxEly2eppMDQGgAAaAAAegsh5Zk/oCKpe2q5rXOa97AGEOc1oZ8RBIBDWyB+3USZAtxQNjIAEm7nNl5swGNW3NjN4sgPK8bxL5NJkCm05QINuhkmflASj1+DxQUebqavZ578rg7QaKM1ceo2mi/EG6zxrU4olK3GZEoURQgpQpEoDqDhlTp6q8rNHfxH/ALZU6ep+yvKx38SJ4fUGw9QpTKs0B5MrfJeFlyOWRz93oG7ZiLPh7+vNccdJRrx9/ibfE6dJe+aTQEB859usbWFf3Qc4U2taWgGJmbnnyvy6rFnvdm4491z1bs85Xxj6mUPc52UQ3NJgd1D0YqEL5Y1e+h7b/TylUNN8yKJcCJ3cNQ0bCYnt1KqPF7VnFzj41r9D2b0PKMWLEiOa5uKdY3ZlHczYIw7Lr216+e683FCPEQeG1e8X59b9TZLazpuw87Lixd5hmmtGjXzeBQ/BvmwJHML6zh86zw5kXvI9WR/p36ZT6Lopjnj4jOFf+0pQ7yPiBwr/ANpSmO8j4i/pX/sPolDvI+Ihhnn9J9EoPJHxJNpFvxAjutOVbE5k9jThaQbMbrUizm5bmwFZGoaAiUBzMdw8P6a/NQ6cWdwEyiGNgIa8mRzdsxVQZW3GqRYFwwLt4b3P2W2jB5o9Abw8n9Q9HfZOUPMl0EeHO/c3/wCvnaycpO/XgUVsI9tyJHMXH/iUbI5IszKGZ6hlJpsRPQgx5TZbDzrZIU26Q2BtAsf4QWxVwIsO0W6nRcnG5eTFS3ei+vwMoas52LMW5XXhZJRxrTodMdSgDcrGMvaiq8/1GRqpL3TA0NQHM47wClim+LwuHwvGo+4Uas6OH4qeCVx28DyFL2Gr+9DXFvu9TUB25BusrGmeu+1cXJaT5vD8n0DCYZtJjabBDWiAFlR4U5ynJyluxuUMTHimki22q4ePjJ4Xy/36GcWkysMghw1/kb/ReSpd3kU4vr59Ovp+UZbqmdyg4PAdGv1/yvbz8PHiIrPFa9V5/j4nJbi+UueY9Fyd9Lh2qWlf76iuYgKi9Phe0IZ9Kal4b/v9mMoNEpXomAIBSgDMgMfENu5WjNsjdi3ZQAS2Guym0GAdDuDqNtu4XOjazLRqvpVnGsWxUDG03taWtBZm/wCN8k+IlxIM30iR4siHjKvtvifelzcoZNqZb+nkXaz1WFn0cey8PJyv+Xj+DDiPanFuqGoKpbeQwfAB+2Nx1N0s3w7PwKHI4359T2PBa1Z7WMAcabYcazny52jhRA1cRdjibW1JkNzPmMkeWco+DOriXLEwNdNpDAPCRF76fK/yXalSSOdvVsH0ZINp5EEjyvYq0FLShvMa29bd4QiAEESL9vugKKjDOcNOmjcuY9DP3CFT0o5GKpuzElhbN45dyCQsHZ2Y5KkrO572BYzl+K9xbcA3KzOOrJHFU4lzgAdC7w/J0JaHLK6RGs8G4gjb79Qvne0uLSy0ta0r4m7HHQ57zMu5m3YWC81TeR2+v6jfVaFdVhgDYn6X/PNb/wCFPpdfvp82Fqa6K+gNZpahCYQDQEXICtyxKLC3c5p0Lf5j+UxuM5yxS2cfwYZNEmQbSIlpv+WK+dcHjySwzXl9n9/XyNqdrmRZhKha4tOhuO4XodlcTKGR4p6J7ev5S+BhmjatGl9Sd16HFcAszTjKvl+DTGdDa8BdXD8PDBHlj7/Ekm2S96FvMaD3oQUHvggoXvW80FFOMeCBHP8AgrVm/ibMW5RSXMby9zA4FrgCDqCJHoVTE+de1XscWONak0uYSSQJlpNzbksba9D1+E4jDOo5dGtmc/2a9l34l+ZzntpjV0Nudg0EQVU7N3G5o4o8sZtyfo0vgfTqNBtNjabbNaA0dgN+ZVZ4RSRLgOqygrkiSdI21Zk33sRJ8i0DTrK6zQqJNGk6/wDUOj+YQhJzVSEfdg6gHuAUFkM7Zi89nR5HQlQU6MwrmTlzug3DmFsf2khoPzUsz5fH9+Ze+nEkC/SASe9rqmN2RyGe/Ja8s1jg5PoFqRxbYBPOw7lfGcTtz+PzOyHgU1KBgRsPn+T6qYcU8k1CK1/dSuSW5XXaWNLj+HkPkunPpKo/xjS/P9sQ1LaS+hRgaGqgsCEGgIuUBU5QpmpE+9tyheNxHEPDxqmuiSfp1M3G4UXUMU1zoJE6eY1C7O1MCyxWWOv2NMG1oXVcp1OmnXouDuMuVRyRT5lo/wCtn9fWzLmrQoDOq+lwylKCc1T6mh7lraB5raSyXuHKiyupRcoWzJVZU2U1KqMjxWU1MtCzBmpm8Wl1hO6Mo1Z0WLnNhoYqQtCpiQgAWAHZQFFUoU59fENYRmvMiFnj3MZ3RYMYwjKJA/6lzdOoK6LNWt2WnFx59Cb8yrZKH/VJZCBxJSy0TbXKtkosFQoDbCGIUqQzcrfNed2hNOKx3V/Q2Q8SNctL2iD4fETcydAF5GTBHI4rHB+b3/o3JtJ2zAW1XVA57clIXy2Lidpj8svQw8HPDjfL/J9SOUWZ8XiS97Qxj3NaczhAbJHwwSuf/j5SSi3pu9PkzZGXKm+pophelRC9oVBa1CDIQEHKAgQoUwP4f7xzrHuDr5LOOKLfNWviYSm0M+zhjwuylbu7Me98Qp8Jrt3afMx9EUZIjnFnQZg3Rex6XWdGFgxz2mCJVBspOnZZGJYWICp+GBQtmZ+GIULZRUZF1hk/iZw3ALmNxawqAuaqQT0IZKpQpiqMB1C3Y1oa5snSwnRbUjBs1twgVoxsmMKOStEsn7kckFgGBUDyhCF0qAkIWqeOMnbSLbRNsDT5IopbCx5lQRc0HUJRbMzcDBMPPYgGOxELDukbFl8i0YXqPop3XmXvEMYc9FO6Ze8Q/cFO7Y7xB/THmE7pk7xEm4Zo1JPyWSxIxeRlrQBYCFsSowbseZUgZkAsyoCQgCUASqAlAEqAi+m06hRqyp0Zn4L9p8j91peLwNqy+JnqOLPia8dQ0vHqyYWDg0bE09mVHi+HbZ1am08nuDD6OhY3W5msU3smyJ4vhzpXpHtUYfoVLQeKa3i/cSHj+EE9YMeuiyUWzW2luX0cFHxarpjGkaJSs0hgGizMRQqBFARKAiUAkIWKAkCoCUqAAUA5QDlAMOVKSDkA5QWEoLEgBBYKAFQJACAEAlRYKAUoAlAPMoAzIAzIAzICJegIlyoFKoESgFmQClAIlUhEoUshKMRwoUcKUBpQBKAwEoDhKFjCoJJQCUIEoAlAEoUEA0IJChCASAIQBCCxIBIAQAVARKAUILCFQIhAKEAsqCxFqoFCAMiCyVK4mCO+qB7jJiBBM7jZAXAIYkHHaRPI/ZCiYYgOcJ9J7BQu+xYqQTnRr90FWB7fnooUVpjcX/wUGpYAqQCgEoAQDlAEoAQAFQEoBIAQAoBIAlAJAKEAkAw5UCqHeJ6WUCITz0+iAi2SdO19lSk/doSysyNPOb+iF3GypOxHdA1RCjXa4SNBubDylRMri1uWMxDXfC4HoCrZHFrdAMSzZ7SeUhLHJLwM7jmMVWsjbUuWPqbNl7DHTcZA8MTbwOkDuUDWn5RtDuyyNQmvB0IPa6Bqtwc7n+d0BOUASUAlACAEA0AKgEAKAIVAkAIBIAUAQgBUCUAiUBEhAIqgeVARc6EKVsxIdOWfMQD5qWVwa3IPrSIIbPInXzhLKo1qiFETrLenhjyMXRFky6tSa4eIT+clWkYxk1sUVqZYJphoBsRCxemxnF879ouZh2CDlbPyCtIxc5PSy9rxPxA9AQqYUUVMaJgNceZAt89VLNixOrtBSoHYgNO0ST3lKDle+5fToBvLyEK0YSk2JuGaDIEeZ+ilIrm2qZcAVTEV0BIT/wCoAKEEgBCggGgBAJCDQChAJCggBAJAIoAKAiUABAShCFQfeIj6HsUKFTz8tUAxdCEatIOsRI7JRU2tUTLEFjIQCLAdQD3CFtorfQpi+UDspSKpyelkHUyfFLv7ZhDJOtDRhyYuAPOVUYSq9C2UMSDrixIQq0ZKFQGS4M+SgsszKkIkqACgBUDUAIBIAhAJAEoAKAUIUSEEhQKAUoAlCCQoigEgIygFmKAZchD/2Q==" alt="Video 2">
+                <h3> finger Puppet Tutorial 2</h3>
+                <p>Master the art of creating emotions through hand puppets.</p>
+                <a href="#">Watch Now</a>
+            </div>
+            <div class="video-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh7pTCKqP0_R2Jz8qhniiDby0WZK8c3V-kOA&s" alt="Video 3">
+                <h3>finger Puppet Tutorial 3</h3>
+                <p>Advanced techniques for storytelling with hand puppets.</p>
+                <a href="#">Watch Now</a>
+            </div>
+            <div class="video-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfeaig5oM-iV6C_5WvUUEXvMjY6Dine2KLIw&s" alt="Video 4">
+                <h3>finger Puppet Tutorial 4</h3>
+                <p>Learn how to manipulate multiple hand puppets at once.</p>
+                <a href="#">Watch Now</a>
+            </div>
+            <div class="video-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyEU_sCO8oPeNb7TnroDU0Fjf83qrn2_GTFQ&s" alt="Video 5">
+                <h3>finger Puppet Tutorial 5</h3>
+                <p>Tips for designing your own hand puppets at home.</p>
+                <a href="#">Watch Now</a>
+            </div>
+            <div class="video-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ97jweXYXtLSi2_EUF4yOY3HYmU0duU3KvdQ&s" alt="Video 6">
+                <h3>finger Puppet Tutorial 6</h3>
+                <p>Exploring creative voices and sounds for hand puppets.</p>
+                <a href="#">Watch Now</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
